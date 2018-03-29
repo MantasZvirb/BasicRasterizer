@@ -34,16 +34,34 @@ int main(ulong argc,uchar *argv[])
 	Verts[2].Y = 0;
 	Verts[2].Z = 1;
 	
+	Point3D Vrt[3];
+	Vrt[0].X = -1;
+	Vrt[0].Y = 0;
+	Vrt[0].Z = 3;
+	
+	Vrt[1].X = -0.5;
+	Vrt[1].Y = 1;
+	Vrt[1].Z = 3;
+	
+	Vrt[2].X = 0;
+	Vrt[2].Y = 0;
+	Vrt[2].Z = 3;
+	Point3D PV2[3];
+	
+	
 	Point3D TV;
-	TV.X = 0.5;
+	TV.X = -1.5;
 	TV.Y = 0;
 	TV.Z = 0;
+	
+	TranslateVertex(Vrt,&TV,3);
 	
 	//TranslateVertex(Verts,&TV,3);
 	//RotateVertexFixX(Verts,M_PI*0.5,3);
 	ProjectVertex(&RC,Verts,3,ProjVerts);
+	ProjectVertex(&RC,Vrt,3,PV2);
 	DrawTriangles(ProjVerts,List,1,X,Y,Buf);
-		
+	DrawTriangles(PV2,List,1,X,Y,Buf);
 	WriteTGA("./Test.tga",Buf,X,Y);
 
 	return 0;
