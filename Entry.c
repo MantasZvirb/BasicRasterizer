@@ -41,7 +41,6 @@ int main(ulong argc,uchar *argv[])
 	
 	//TranslateVertex(Verts,&TV,3);
 	//RotateVertexFixX(Verts,M_PI*0.5,3);
-	
 	ProjectVertex(&RC,Verts,3,ProjVerts);
 	DrawTriangles(ProjVerts,List,1,X,Y,Buf);
 		

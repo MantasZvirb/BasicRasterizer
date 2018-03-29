@@ -79,7 +79,6 @@ void RotateVertexFixX(Point3D *Vert,float Rad,ushort NumOfVerts)
 		float OldZ = Vert[i].Z;
 		Vert[i].Y = OldY*cos(Rad) - OldZ*sin(Rad);
 		Vert[i].Z = OldY*sin(Rad) + OldZ*cos(Rad);
-		printf("%f %f %f\n",Vert[i].X,Vert[i].Y,Vert[i].Z);
 	}
 	
 	
