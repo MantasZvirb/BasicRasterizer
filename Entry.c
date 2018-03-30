@@ -12,8 +12,8 @@ int main(ulong argc,uchar *argv[])
 	uchar *Buf = malloc(X*Y*3);
 
 	RenderContext RC = {0};
-	RC.CameraPoint.Z = 0;
-	RC.PlanePoint.Z = 1;
+	RC.CameraPoint.Z = -5;
+	RC.PlanePoint.Z = -4;
 
 	Point3D Verts[3];
 	Point3D ProjVerts[3];
@@ -24,15 +24,15 @@ int main(ulong argc,uchar *argv[])
 
 	Verts[0].X = -0.5;
 	Verts[0].Y = 0;
-	Verts[0].Z = 1;
+	Verts[0].Z = 2;
 
 	Verts[1].X = 0;
 	Verts[1].Y = 0.5;
-	Verts[1].Z = 1;
+	Verts[1].Z = 2;
 
 	Verts[2].X = 0.5;
 	Verts[2].Y = 0;
-	Verts[2].Z = 1;
+	Verts[2].Z = 2;
 	
 	Point3D Vrt[3];
 	Vrt[0].X = -1;
@@ -57,11 +57,11 @@ int main(ulong argc,uchar *argv[])
 	TranslateVertex(Vrt,&TV,3);
 	
 	//TranslateVertex(Verts,&TV,3);
-	//RotateVertexFixX(Verts,M_PI*0.5,3);
+	RotateVertexFixY(Verts,M_PI*1.5,3);
 	ProjectVertex(&RC,Verts,3,ProjVerts);
 	ProjectVertex(&RC,Vrt,3,PV2);
 	DrawTriangles(ProjVerts,List,1,X,Y,Buf);
-	DrawTriangles(PV2,List,1,X,Y,Buf);
+	//DrawTriangles(PV2,List,1,X,Y,Buf);
 	WriteTGA("./Test.tga",Buf,X,Y);
 
 	return 0;

@@ -29,12 +29,6 @@ void SubPoint3D(Point3D *V1,Point3D *V2,Point3D *Out)
 	Out->Z = V1->Z-V2->Z;
 }
 
-float EdgeFunction(Point3D *V1,Point3D *V2,Point3D *V3)
-{
-	return (V3->X - V1->X)*(V2->Y - V1->Y) -
-	(V3->Y - V1->Y)*(V2->X-V1->X);
-}
-
 void FindMaxMinComponent3dPA(Point3D **Vectors,
 ushort NumOfVectors,
 float *OutXMin,float *OutYMin,
